@@ -3,7 +3,7 @@
 
 # ## EXERCICE 1/2:
 
-# In[7]:
+# In[ ]:
 
 
 def not_used(comb, used_combs):
@@ -42,8 +42,45 @@ def roll_dice(n, nbd, comb, used_combs = []):
     
     pass
 
+if __name__ == "__main__":
+    n, nbd = int(input("LOOK FOR NUMBER : ")), int(input("NUMBER OF DICES : "))
+    len_slt_space, combs = roll_dice(n, nbd, [1]*nbd)
+    print("LENGTH OF THE SOLUTION SPACE : " + str(len_slt_space))
+    print("SOLUTION SPACE : " + str(combs))
 
-n, nbd = int(input("LOOK FOR NUMBER : ")), int(input("NUMBER OF DICES : "))
-len_slt_space, combs = roll_dice(n, nbd, [1]*nbd)
-print("LENGTH OF THE SOLUTION SPACE : " + str(len_slt_space))
-print("SOLUTION SPACE : " + str(combs))
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
