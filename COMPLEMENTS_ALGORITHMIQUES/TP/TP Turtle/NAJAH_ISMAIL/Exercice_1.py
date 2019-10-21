@@ -34,7 +34,7 @@ def main():
     turtle.setx(-w/2)
     turtle.down()
 
-    size = input("Taille d'un cote : ")
+    size = int(input("Taille d'un cote : "))
     #rep = input("Repetition : ")
     #Question2(size)
     #Question3(size,rep)
