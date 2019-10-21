@@ -36,7 +36,7 @@ def pickedShape(op):
     if op == 3:
         return polygone
     
-def draw(option=1,numbre=5):
+def draw(option=1,numbre=5,isRandom=False):
     r=3
     angle=0
     size = 3
@@ -51,7 +51,8 @@ def draw(option=1,numbre=5):
             turtle.forward(r)
         if angle%30==0:
             turtle.down()
-            option = random.randint(1,3)
+            if isRandom:
+                option = random.randint(1,3)
             pickedShape(option)(size,numbre)
             size += size*0.1
             turtle.up()
@@ -61,21 +62,18 @@ def draw(option=1,numbre=5):
 
 def Question6():
     shapes = [None,"branches","branches","cotes"]
-    print "Choisir un motif : "
-    print " 1- etoile type 1"
-    print " 2- etoile type 2"
-    print " 3- Polygone"
-    op = input("Votre choix : ")
-    numbre = input("Nombre de "+shapes[op]+" : ")
+    print ("Choisir un motif : ")
+    print (" 1- etoile type 1")
+    print (" 2- etoile type 2")
+    print (" 3- Polygone")
+    op = int(input("Votre choix : "))
+    numbre = int(input("Nombre de "+shapes[op]+" : "))
     draw(op,numbre)
-    
-def RandomShapes():
-    draw()
 
 
 def main():
     turtle.setup(500,500,None,None)
-    RandomShapes()
+    draw(isRandom=True)
     #Question6()
     turtle.done()
 
