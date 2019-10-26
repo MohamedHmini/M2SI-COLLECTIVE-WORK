@@ -226,9 +226,9 @@ def f6(liste, k, FinalListe1):  # 'liste' est la liste à étendre et 'k' l'indice
 
 
 def NumberWithDice(n, NbD):
-    x = n / 6
+    x = int(n / 6)
     if (x > NbD - 1):
-        print "le nombre ", n, "ne peut etre obtenu a partir de :", NbD, "de Dices"
+        print("le nombre ", n, "ne peut etre obtenu a partir de :", NbD, "de Dices")
     else:
         y = n % 6
         liste = []
@@ -257,13 +257,13 @@ def NumberWithDice(n, NbD):
             if (Is6Extedable(liste,x) !=-1):
                 f6(liste, k, FinalListe)
             k = k - 1
-    print "les combinaisons possibles sont : \n"
+    print("les combinaisons possibles sont : \n")
     for l in FinalListe:
-        print l, "\n"
+        print(l, "\n")
 
 
-n = input('donner un nombre a traite ')
-NbD = input('donner le nombre de Dices ')
+n = int(input('donner un nombre a traite '))
+NbD = int(input('donner le nombre de Dices '))
 NbrDice = NbD - 1
 NumberWithDice(n, NbD)
 
