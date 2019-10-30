@@ -6,47 +6,42 @@
 # In[ ]:
 
 
+used_combs = []
+
 def not_used(comb, used_combs):
-    
-    try:
-        used_combs.index(sorted(comb))
-        return False
-    except:
-        return True
-        pass
-    
+    return not(comb in used_combs)   
     pass
 
-def roll_dice(n, nbd, comb, used_combs = []):
+def roll_dice(n, nbd, comb):
     
     new_comb = comb.copy()
-    _not_used = not_used(new_comb, used_combs)
-    total_sum = sum(new_comb)
-    if total_sum == n and _not_used:
-        used_combs.append(sorted(new_comb))
-        s = 1
-        pass
-    else:
-        s = 0
-        pass
+    sorted_new_comb = sorted(new_comb)
+    _not_used = not_used(sorted_new_comb, used_combs)
+
+    if not _not_used :
+        return 0
     
+    used_combs.append(sorted_new_comb)    
+    total_sum = sum(new_comb)
+
+    s = 1 if total_sum == n else 0    
     
     if s == 0:
         for i in range(nbd):
             if comb[i] < 6:
                 new_comb[i] += 1
-                s += roll_dice(n, nbd, new_comb, used_combs)[0]
+                s += roll_dice(n, nbd, new_comb)
             
             
-    return s,used_combs
+    return s
     
     pass
 
 if __name__ == "__main__":
     n, nbd = int(input("LOOK FOR NUMBER : ")), int(input("NUMBER OF DICES : "))
-    len_slt_space, combs = roll_dice(n, nbd, [1]*nbd)
+    len_slt_space = roll_dice(n, nbd, [1]*nbd)
     print("LENGTH OF THE SOLUTION SPACE : " + str(len_slt_space))
-    print("SOLUTION SPACE : " + str(combs))
+    #print("SOLUTION SPACE : " + str(combs))
 
 
 # In[ ]:

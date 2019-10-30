@@ -4,6 +4,7 @@ N_6 = N - nbd
 i = 0
 mx = 6**nbd
 st = set()
+
 while i < mx:
     k = i
     s = ''
