@@ -1,0 +1,76 @@
+model Usecase
+
+enum D_Type {Extend,Include,Generalization}
+
+-- classes
+class Diagram
+attributes
+    name : String
+
+operations
+
+
+end
+
+class Actor
+attributes
+    name : String
+
+operations
+
+end
+
+class Usecase
+attributes
+    name : String
+
+operations
+
+end
+
+class Dependancy
+attributes
+    type : D_Type
+
+operations
+
+end
+
+class Association
+attributes
+    name : String
+operations
+  
+end
+
+-- compositions
+composition DiagramActor between
+    Diagram[1] role container
+    Actor[1..*] role actor
+end
+
+composition DiagramUsecase between 
+    Diagram[1] role container
+    Usecase[1..*] role usecase
+end
+
+-- associations
+association ActorAssociation between
+    Actor[1] role actor
+    Association[1..*] role association
+end
+
+association UsecaseAssociation between
+    Usecase[1] role usecase
+    Association[0..*] role association
+end
+
+association DependacyTarget between
+    Dependancy[0..*] role outgoing
+    Usecase[1] role target
+end
+
+association DependacySource between
+    Dependancy[0..*] role incoming
+    Usecase[1] role source
+end
